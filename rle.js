@@ -1,4 +1,4 @@
-export default Class RLE {
+export default class RLE {
 	constructor() {
 		
 	}
@@ -8,9 +8,10 @@ export default Class RLE {
 		let iterator = 0;
 		let previousCharacter = "";
 		let parsedMessage = "";
+		console.log(message);
 		while (iterator < message.length) {
-			let currentCharacter = message.get(iterator);
-			if (currentCharacter != prevousCharacter) {
+			let currentCharacter = message.charAt(iterator);
+			if (currentCharacter != previousCharacter) {
 				if (counter > 1) {
 				  parsedMessage += `${counter}${previousCharacter}`;
 					counter = 1;
@@ -22,6 +23,9 @@ export default Class RLE {
 				counter ++;
 			}
 			iterator ++;
+		}
+		if (previousCharacter != ""){
+			parsedMessage += `${counter > 1 ? counter : ""}${previousCharacter}`;
 		}
 		return parsedMessage;
 	}
