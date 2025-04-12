@@ -5,7 +5,6 @@ import { stdin, stdout } from "node:process";
 
 const parser = new RLE();
 
-
 async function inputString() {
 	const rl = createInterface({
 		input: process.stdin,
@@ -20,7 +19,7 @@ async function inputString() {
 async function main() {
   while (true) {
 		const input = await inputString();
-		console.log(`Result: ${parser.parse(input)}`);
+		console.log(`Result: ${parser.compress(input)}`);
 	}
 }
 

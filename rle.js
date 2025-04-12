@@ -4,29 +4,39 @@ export default class RLE {
 	}
 
 	parse(message) {
+		let iterator = "";
+		let parsedString = "";
+		while (iterator < message.length) {
+			const currentCharacter = message.charAt(iterator);
+			if (!Number.isNaN(Number(currentCharacter))) {
+				// is the counter
+				iterator ++;
+				const nextCharacter = message.chartAt(iterator);
+				if (!Number.isNaN(Number(nextCharacter))) {
+					// is the real character
+					parsedString += 
+				}
+			}
+		}
+	}
+
+	compress(message) {
 		let counter = 1;
 		let iterator = 0;
 		let previousCharacter = "";
-		let parsedMessage = "";
-		console.log(message);
+		let compressedMessage = "";
 		while (iterator < message.length) {
-			let currentCharacter = message.charAt(iterator);
+			const currentCharacter = message.charAt(iterator);
 			if (currentCharacter != previousCharacter) {
-				if (counter > 1) {
-				  parsedMessage += `${counter}${previousCharacter}`;
-					counter = 1;
-				} else {
-					parsedMessage += previousCharacter;
-				}
+				compressedMessage += `${previousCharacter}${counter > 1 ? counter : ""}`;
+				counter = 1;
 				previousCharacter = currentCharacter;
-			} else {
+			} else 
 				counter ++;
-			}
 			iterator ++;
 		}
-		if (previousCharacter != ""){
-			parsedMessage += `${counter > 1 ? counter : ""}${previousCharacter}`;
-		}
-		return parsedMessage;
+		if (previousCharacter != "")
+			compressedMessage += `${previousCharacter}${counter > 1 ? counter : ""}`;
+		return compressedMessage;
 	}
 }
