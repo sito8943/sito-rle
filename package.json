@@ -1,0 +1,16 @@
+{
+  "name": "sito-rle",
+  "version": "0.0.1",
+  "description": "this is a sito version for rle",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rle",
+    "sito"
+  ],
+  "author": "sito8943",
+  "license": "MIT"
+}
