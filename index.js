@@ -1,26 +1,26 @@
-import RLE from "./rle.js";
+import rle from "./rle.js";
 
 import { createInterface } from "node:readline/promises";
 import { stdin, stdout } from "node:process";
 
-const parser = new RLE();
+const parser = new rle();
 
-async function inputString() {
-	const rl = createInterface({
-		input: process.stdin,
-		output: process.stdout,
-	});
-	const input = await rl.question("Enter string input (ctrl + z): ");
-	const string = input;
-	await rl.close();
-	return string;
+export default parser;
+
+/**
+ * Parse a string message
+ * @param {string} message - string to parse
+ * @returns {string} parsed message
+ */
+export function decompress(message) {
+	return parser.decompress(message);
 }
 
-async function main() {
-  while (true) {
-		const input = await inputString();
-		console.log(`Result: ${parser.compress(input)}`);
-	}
+/**
+ * Compress a string message
+ * @param {string} message - string to compress
+ * @returns {string} compressed message
+ */
+export function compress(message) {
+	return parse.compress(message);
 }
-
-main();
