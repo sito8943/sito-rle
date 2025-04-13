@@ -53,23 +53,28 @@ export default class RLE {
 	compress(message) {
 		let counter = 1;
 		let iterator = 0;
-		let previousCharacter = "";
+		let previousCharacter = 0;
 		const output = [];
 
 		while (iterator < message.length) {
-			const currentCharacter = message.charAt(iterator);
-
+			const currentCharacter = message.charCodeAt(iterator);
 			if (currentCharacter != previousCharacter) {
-				output.push(counter, previousCharacter);
+				if (!!previousCharacter)
+					output.push(counter, previousCharacter);
 				counter = 1;
 				previousCharacter = currentCharacter;
-			} else 
+			} else {
+				if (counter === 255) {
+					output.push(counter, previousCharacter);
+					counter = 0;
+				}
 				counter ++;
+			}
 
 			iterator ++;
 		}
 
-		if (previousCharacter != "")
+		if (!!previousCharacter)
 			output.push(counter, previousCharacter);
 
 		return new Uint8Array(output);

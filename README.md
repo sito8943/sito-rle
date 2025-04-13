@@ -1,6 +1,14 @@
 # Sito RLE
 *Run-length Encoding*
 
+## To install
+
+```
+npm install sito-rle
+```
+
+or can use `yarn` or `pnpm`
+
 This simple code only have a class with `rle` and will have a `compress` and `decompress` methods
 
 ## Compress

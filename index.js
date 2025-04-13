@@ -22,5 +22,5 @@ export function decompress(message) {
  * @returns {string} compressed message
  */
 export function compress(message) {
-	return parse.compress(message);
+	return parser.compress(message);
 }

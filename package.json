@@ -1,9 +1,13 @@
 {
 	"name": "sito-rle",
-	"version": "0.0.3",
+	"version": "0.0.6", 
 	"description": "this is a sito version for rle",
 	"main": "index.js",
 	"type": "module",
+	"repository": {
+		"type": "git",
+		"url": "https://github.com/sito8943/sito-rle/"
+	},
 	"scripts": {
 		"build": "uglifyjs ./index.js ./dist/main.js"
 	},
